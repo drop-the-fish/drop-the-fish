@@ -1,0 +1,81 @@
+* {
+  /* border: 1px solid black; */
+  margin: 0px;
+}
+
+header {
+  display: flex;
+  font-size: 30px;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  height: 60px;
+  padding: 8px;
+  background-color: #AFEEEE;
+}
+
+header > div {
+  display: flex;
+}
+
+.logo_img {
+  width: 250px;
+  height: 40px;
+  color: #AFEEEE;
+}
+
+.logo_refresh {
+  margin-left: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+.logo_question {
+  margin-right: 20px;
+  width: 30px;
+  height: 30px;
+}
+.title {
+  font-weight: bold;
+  color: #FFD700;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.container {
+  background-image: url('../static/logos/바다일러스트.png');
+  height : 800px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container > img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  width: 640px;
+  height: 480px;
+}
+
+.container .buttons {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container .buttons > button {
+  width: 200px;
+  height: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: wheat;
+  border: none;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+

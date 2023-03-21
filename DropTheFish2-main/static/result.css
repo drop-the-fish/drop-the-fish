@@ -1,0 +1,65 @@
+* {
+  margin: 0px;
+}
+header {
+  display: flex;
+  font-size: 30px;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  height: 60px;
+  padding: 8px;
+  background-color: #AFEEEE;
+}
+header > div {
+  display: flex;
+}
+
+.logo_img {
+  width: 250px;
+  height: 40px;
+  color: #AFEEEE;
+}
+.logo_refresh {
+  margin-left: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+.logo_question {
+  margin-right: 20px;
+  width: 30px;
+  height: 30px;
+}
+.title {
+  font-weight: bold;
+  color: #FFD700;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.container {
+  background-image: url('../static/logos/바다일러스트.png');
+  height : 800px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+}
+
+.result_img {
+  width: 300px;
+  height: 300px;
+  border-radius: 70%;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  object-fit: contain;
+}
+
+.result_text {
+  color: white;
+  margin-top: 20px;
+}

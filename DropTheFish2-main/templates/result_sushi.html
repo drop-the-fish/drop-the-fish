@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="https://kit.fontawesome.com/ce3a77d8ba.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../static/result.css?after">
+  <title>결과</title>
+</head>
+<body>
+  <header>
+    <img class="logo_refresh" src="../static/logos/icon_home.png"/>
+    <div class="title">
+      <!-- <span>드랍 더 피시</span> -->
+      <img class="logo_img" src="../static/logos/로고2.png" alt="로고">
+    </div>
+    <img class="logo_question" src="../static/logos/icon_questionmark.png"
+      title="물음표"
+    />
+  </header>
+  <div class="container">
+    <!-- <img class="result_img" src="../static/class/{{prediction}}.jpg"/> -->
+    <img class="result_img" src="../static/images/sushi/{{path}}" />
+    <h3 class="result_text">{{prediction}}</h3>
+  </div>
+  <img />
+  <script>
+    const img_tag = document.querySelector('.result_img');
+    const home_button = document.querySelector('.logo_refresh');
+    home_button.addEventListener('click', () => {
+      location.href = '/'
+    });
+    // img_tag.src = "../static/images/result_pic0.jpg"
+    img_tag.attributes['src'].value += "?a=" + Math.random();
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="https://kit.fontawesome.com/ce3a77d8ba.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../static/fish.css?after">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <!-- <i class="fa-solid fa-arrow-rotate-left">back</i> -->
+    <img class="logo_refresh" src="../static/logos/icon_home.png"/>
+    <div class="title">
+      <!-- <span>드랍 더 피시</span> -->
+      <img class="logo_img" src="../static/logos/로고2.png" alt="로고">
+    </div>
+    <img class="logo_question" src="../static/logos/icon_questionmark.png"/>
+  </header>
+  <div class="container">
+    <img id="img" src="{{ url_for('video') }}"/>
+    <div class="buttons">
+      <button id="capture" name="capture">캡쳐</button>
+      <button id='video'>다시 찍기</button>
+    </div>
+  </div>
+  <script>
+    const capture_button = document.getElementById('capture');
+    const video_button = document.getElementById('video');
+    const img = document.getElementById('img');
+    const capture_img = '';
+    const home_button = document.querySelector('.logo_refresh');
+    home_button.addEventListener('click', () => {
+      location.href = '/'
+    });
+    capture_button.addEventListener('click', async () => {
+      if(capture_button.name === 'capture') {
+        await axios.get('/capture')
+        .then((res) => {
+          // console.log(res.data);
+          img.src = `../static/images/${res.data}`
+          // img.src = '../static/1.jpg';
+        })
+        .catch(err => console.log(err));
+        capture_button.name = 'send';
+        capture_button.innerText = '결과확인';
+      }
+      // 결과 확인 페이지로 가는 로직
+      else if(capture_button.name === 'send') {
+        location.href = '/result/sushi';
+      }
+        
+    });
+    video_button.addEventListener('click',  () => {
+      img.src = 'video';
+      capture_button.name = 'capture';
+      capture_button.innerText = '캡쳐';
+    })
+  </script>
+</body>
+
+</html>
