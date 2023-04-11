@@ -6,16 +6,15 @@ from camera import *
 #   "models/fish/godeong.weights","models/fish/gwang.weights","models/fish/jeonbok.weights",
 #   "models/fish/song.weights","models/fish/yeolgi.weights","models/fish/yeon.weights"
 # ]
-model_list = [ "models/fish/cham.weights" ,"models/fish/godeong.weights"
-]
-class_list = [["bang"],["cham"],["galchi"],["godeong"],["gwang"],["jeonbok"],["song"],["yeolgi"],["yeon"]]
+model_list = [ "models/fish/cham.weights" ,"models/fish/yeon.weights"]
+class_list = [["cham"],["salmon"]]
 img_list = []
 confidence_list = []
 final_result = []
 
 def detectFishModels():
   for k in range(len(model_list)):
-    net = cv2.dnn.readNet(model_list[k], "models/yolov4-obj.cfg")
+    net = cv2.dnn.readNet(model_list[k], "models/yolov4.cfg")
     classes = class_list[k]
     layer_names = net.getLayerNames()
     output_layers = [layer_names[k - 1] for k in net.getUnconnectedOutLayers()]

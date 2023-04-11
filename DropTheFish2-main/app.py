@@ -8,10 +8,8 @@ from detectFish import *
 from detectSushi import *
 app = Flask(__name__)
 
-fish_class_list = [["bangeo"],["cham"],["galchi"],["godeong"],["gwang"],["jeonbok"],["song"],["yeolgi"],["yeon"]]
-sushi_class_list = [["bang_sushi"],["cham_sushi"],["daeha"],["doldom_sushi"],["godeong_sushi"],["gwang_sushi"],["jeon_sushi"],
-  ["jeonbok_sushi"],["squid_sushi"],["yeolgi_sushi"],["yeon_sushi"]
-]
+fish_class_list = [["cham"],["yeon"]]
+sushi_class_list = [["cham_sushi"],["yeon_sushi"]]
 
 
 @app.route('/')

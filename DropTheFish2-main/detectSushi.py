@@ -2,13 +2,9 @@ import cv2
 import numpy as np
 from camera import *
 
-model_list = ["models/sushi/bang_sushi.weights", "models/sushi/cham_sushi.weights", "models/sushi/daeha.weights",
-  "models/sushi/doldom_sushi.weights","models/sushi/godeong_sushi.weights","models/sushi/gwang_sushi.weights",
-  "models/sushi/jeon_sushi.weights","models/sushi/jeonbok_sushi.weights","models/sushi/squid_sushi.weights",
-  "models/sushi/yeolgi_sushi.weights","models/sushi/yeon_sushi.weights"
+model_list = [ "models/sushi/cham_sushi.weights", "models/sushi/salmonsashimi.weights"
 ]
-class_list = [["bang_sushi"],["cham_sushi"],["daeha"],["doldom_sushi"],["godeong_sushi"],["gwang_sushi"],["jeon_sushi"],
-  ["jeonbok_sushi"],["squid_sushi"],["yeolgi_sushi"],["yeon_sushi"]]
+class_list = [["cham_sushi"],["salmonsashimi_sushi"]]
 img_list = []
 final_sushi_result = []
 confidence_sushi_list = []
