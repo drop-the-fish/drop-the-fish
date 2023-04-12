@@ -1,3 +1,4 @@
+import json
 from flask import Flask, render_template, request, jsonify
 from detectFish import *
 from detectSushi import *
@@ -21,19 +22,15 @@ def sushi():
 
 @app.route('/result/fish', methods=['POST', 'GET'])
 def result_fish():
-  base64Image = request.json[0]['image']
-  imageStr = base64.b64decode(base64Image)
+  base64Image = request.json
+  imageStr = base64.b64decode(base64Image['image'])
   nparr = np.fromstring(imageStr, np.uint8)
   img_np = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-  # img = cv2.imread('static/images/fish/salmon.jpg', cv2.IMREAD_COLOR)
   result = detectFishModels(img_np)
-  print('result 길이 : ', len(result))
-  for i in range(len(result)):
 
-    cv2.imwrite('./static/images/fish/' + fish_class_list[i][0] + '_result_pic' + '.jpg', result[i])
   temp = get_final_result()
   if len(temp) == 0:
-    prediction = '어종 인식에 실패했습니다.'
+      prediction = '어종 인식에 실패했습니다.'
   else:
     final_result, prediction = get_best_fish()
     prediction_num = int(prediction * 100)
@@ -41,8 +38,7 @@ def result_fish():
 
   clear_final_result()
   clear_confidence_list()
-  data = {result: prediction}
-  return jsonify(data)
+  return jsonify({'success': prediction}),200
 
 # @app.route('/result/sushi')
 # def result_sushi():

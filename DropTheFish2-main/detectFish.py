@@ -3,7 +3,7 @@ import numpy as np
 
 model_list = [ "models/fish/yeon.weights"]
 class_list = [["salmon"],]
-img_list = []
+
 confidence_list = []
 final_result = []
 
@@ -57,21 +57,17 @@ def detectFishModels(img):
         confidence_list.append(confidences[i])
         final_result.append(label)
         print(label,':',confidences[i])
-        # print(i, label)
+
         color = colors[0]
         cv2.rectangle(img, (x, y), (x + w, y + h), color, 2)
         cv2.putText(img, label, (x, y + 30), font, 2, (0, 255, 0), 1)
-    # return cv2.imencode('.jpg', img)
-    # print(class_ids, confidences)
-    img_list.append(img)
-  return img_list
+  return
 
 
 def get_final_result():
   return final_result
 def clear_final_result():
   final_result.clear()
-  img_list.clear()
 def get_confidence_list():
   return confidence_list
 def clear_confidence_list():
