@@ -1,13 +1,9 @@
 import cv2
 import numpy as np
 from camera import *
-# net = cv2.dnn.readNet(f"models/bang-obj_best.weights", "models/yolov4-obj.cfg")
-# model_list = ["models/fish/bang.weights", "models/fish/cham.weights", "models/fish/galchi.weights",
-#   "models/fish/godeong.weights","models/fish/gwang.weights","models/fish/jeonbok.weights",
-#   "models/fish/song.weights","models/fish/yeolgi.weights","models/fish/yeon.weights"
-# ]
-model_list = [ "models/fish/cham.weights" ,"models/fish/yeon.weights"]
-class_list = [["cham"],["salmon"],]
+
+model_list = [ "models/fish/yeon.weights"]
+class_list = [["salmon"],]
 img_list = []
 confidence_list = []
 final_result = []
