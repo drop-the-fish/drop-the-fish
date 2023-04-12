@@ -93,32 +93,32 @@ def result_fish():
   clear_confidence_list()
   return render_template('result_fish.html', path = final_result_path, prediction = prediction)
 
-@app.route('/result/sushi')
-def result_sushi():
-  result = detectSushiModels()
-  print("result 길이 : ",result)
-  for i in range(len(result)):
-    ret, jpg = cv2.imencode('.jpg', i)
-    cv2.imwrite('./static/images/sushi/' + sushi_class_list[i][0] + '_result_pic' + '.jpg', result[i])
-  temp = get_final_sushi_result()[0]
-  if len(temp) == 0:
-    final_result = "filter_fail"
-    prediction = '회 인식에 실패했습니다.'
-  else:
-    # final_result = get_final_sushi_result()[0]
-    # print('final result 길이 : ', final_result)
-    # prediction = get_confidence_sushi_list()
-    # print('confidence list : ', prediction)
-    # prediction = max(prediction)
-    final_result, prediction = get_best_sushi()
-    prediction_num = int(prediction * 100)
-    prediction = final_result + ' 일 확률이 ' + str(prediction_num) + ' %입니다.'
-    print('정수 변환 : ', prediction)
-  print('final_result : ', final_result)
-  final_result_path = final_result + '_result_pic' + '.jpg'
-  clear_final_sushi_result()
-  clear_confidence_sushi_list
-  return render_template('result_sushi.html', path = final_result_path, prediction = prediction)
+# @app.route('/result/sushi')
+# def result_sushi():
+#   result = detectSushiModels()
+#   print("result 길이 : ",result)
+#   for i in range(len(result)):
+#     ret, jpg = cv2.imencode('.jpg', i)
+#     cv2.imwrite('./static/images/sushi/' + sushi_class_list[i][0] + '_result_pic' + '.jpg', result[i])
+#   temp = get_final_sushi_result()[0]
+#   if len(temp) == 0:
+#     final_result = "filter_fail"
+#     prediction = '회 인식에 실패했습니다.'
+#   else:
+#     # final_result = get_final_sushi_result()[0]
+#     # print('final result 길이 : ', final_result)
+#     # prediction = get_confidence_sushi_list()
+#     # print('confidence list : ', prediction)
+#     # prediction = max(prediction)
+#     final_result, prediction = get_best_sushi()
+#     prediction_num = int(prediction * 100)
+#     prediction = final_result + ' 일 확률이 ' + str(prediction_num) + ' %입니다.'
+#     print('정수 변환 : ', prediction)
+#   print('final_result : ', final_result)
+#   final_result_path = final_result + '_result_pic' + '.jpg'
+#   clear_final_sushi_result()
+#   clear_confidence_sushi_list
+#   return render_template('result_sushi.html', path = final_result_path, prediction = prediction)
 
 if __name__ == '__main__':
   app.run(debug=True)
