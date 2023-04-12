@@ -9,7 +9,7 @@ from detectSushi import *
 app = Flask(__name__)
 
 fish_class_list = [["cham"],["yeon"]]
-sushi_class_list = [["cham_sushi"],["yeon_sushi"],]
+sushi_class_list = [["cham_sushi"],["salmonsashimi_sushi"],]
 
 
 @app.route('/')

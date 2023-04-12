@@ -2,16 +2,15 @@ import cv2
 import numpy as np
 from camera import *
 
-model_list = [ "models/sushi/cham_sushi.weights", "models/sushi/salmonsashimi.weights"
-]
-class_list = [["cham_sushi"],["salmonsashimi_sushi"]]
+model_list = ["models/sushi/salmonsashimi_sushi.weights"]
+class_list = [["salmonsashimi_sushi"]]
 img_list = []
 final_sushi_result = []
 confidence_sushi_list = []
 
 def detectSushiModels():
   for k in range(len(model_list)):
-    net = cv2.dnn.readNet(model_list[k], "models/yolov4-obj.cfg")
+    net = cv2.dnn.readNet(model_list[k], "models/yolov4.cfg")
     classes = class_list[k]
     layer_names = net.getLayerNames()
     output_layers = [layer_names[k - 1] for k in net.getUnconnectedOutLayers()]

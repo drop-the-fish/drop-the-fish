@@ -7,7 +7,7 @@ from camera import *
 #   "models/fish/song.weights","models/fish/yeolgi.weights","models/fish/yeon.weights"
 # ]
 model_list = [ "models/fish/cham.weights" ,"models/fish/yeon.weights"]
-class_list = [["cham"],["salmon"]]
+class_list = [["cham"],["salmon"],]
 img_list = []
 confidence_list = []
 final_result = []
