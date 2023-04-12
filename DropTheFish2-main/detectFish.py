@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-from camera import *
 
 model_list = [ "models/fish/yeon.weights"]
 class_list = [["salmon"],]
@@ -8,21 +7,22 @@ img_list = []
 confidence_list = []
 final_result = []
 
-def detectFishModels():
+def detectFishModels(img):
   for k in range(len(model_list)):
     net = cv2.dnn.readNet(model_list[k], "models/yolov4.cfg")
     classes = class_list[k]
     layer_names = net.getLayerNames()
     output_layers = [layer_names[k - 1] for k in net.getUnconnectedOutLayers()]
     colors = np.random.uniform(0, 255, size=(len(classes), 3))
-    frame = get_now_frame_for_detect()
+
+
     min_confidence = 0.5
-    img = cv2.resize(frame, None, fx=0.4, fy=0.4)
+    img = cv2.resize(img, None, fx=0.4, fy=0.4)
     height, width, channels = img.shape
     blob = cv2.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
     net.setInput(blob)
     outs = net.forward(output_layers)
-    # print(outs)
+
     class_ids = []
     confidences = []
     boxes = []
@@ -43,21 +43,6 @@ def detectFishModels():
           # Rectangle coordinates
           x = int(center_x - w / 2)
           y = int(center_y - h / 2)
-          # final_result에 추가
-          # if len(final_result) > 0:
-          #   for q in range(len(final_result)):
-          #     # 전에 저장된 confidence와 현재 confidence 비교
-          #     pre_confidence = final_result[q]
-          #     if confidence > pre_confidence:
-          #       new_result = class_list[k]
-          #       final_result.pop()
-          #       final_result.append(new_result)
-          #       print('이전 값을 삭제하고 새 값을 넣습니다.')
-          # else:
-          #   new_result = class_list[k]
-          #   final_result.append(new_result)
-          # new_result = class_list[k][0]
-          # final_result.append(new_result)
           
           boxes.append([x, y, w, h])
           confidences.append(float(confidence))
