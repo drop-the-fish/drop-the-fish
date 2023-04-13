@@ -64,7 +64,7 @@ def detectSushiModels(img):
     return
 
 
-def get_final_result():
+def get_final_Sushiresult():
     return final_result
 
 

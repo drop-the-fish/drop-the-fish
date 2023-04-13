@@ -45,7 +45,7 @@ def result_sushi():
   img_np = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
   detectSushiModels(img_np)
 
-  temp = get_final_result()
+  temp = get_final_Sushiresult()
   if len(temp) == 0:
       prediction = '어종 인식에 실패했습니다.'
   else:
