@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-model_list = [ "models/fish/yeon.weights"]
+model_list = [ "/home/kohjunghoon/mysite/fish/salmon.weights"]
 class_list = [["연어"],]
 
 confidence_list = []
@@ -9,7 +9,7 @@ final_result = []
 
 def detectFishModels(img):
   for k in range(len(model_list)):
-    net = cv2.dnn.readNet(model_list[k], "models/yolov4.cfg")
+    net = cv2.dnn.readNet(model_list[k], "/home/kohjunghoon/mysite/yolov4.cfg")
     classes = class_list[k]
     layer_names = net.getLayerNames()
     output_layers = [layer_names[k - 1] for k in net.getUnconnectedOutLayers()]
