@@ -55,7 +55,7 @@ def detectSushiModels(img):
                 x, y, w, h = boxes[i]
                 label = str(classes[class_ids[i]])
                 confidence_list.append(confidences[i])
-                final_result.append(label)
+                final_sushi_result.append(label)
                 print(label, ':', confidences[i])
 
                 color = colors[0]
