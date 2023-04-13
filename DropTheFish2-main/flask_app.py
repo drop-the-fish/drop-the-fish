@@ -4,9 +4,6 @@ from detectFish import *
 from detectSushi import *
 app = Flask(__name__)
 import base64
-fish_class_list = [["cham"],["yeon"]]
-sushi_class_list = [["cham_sushi"],["salmonsashimi_sushi"],]
-
 
 @app.route('/')
 def index():
@@ -52,7 +49,7 @@ def result_sushi():
   if len(temp) == 0:
       prediction = '어종 인식에 실패했습니다.'
   else:
-    final_result, prediction = get_best_fish()
+    final_result, prediction = get_best_sushi()
     prediction_num = int(prediction * 100)
     prediction = prediction_num
 

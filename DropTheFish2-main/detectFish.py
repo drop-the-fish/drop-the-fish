@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 model_list = [ "models/fish/yeon.weights"]
-class_list = [["salmon"],]
+class_list = [["연어"],]
 
 confidence_list = []
 final_result = []
@@ -43,11 +43,11 @@ def detectFishModels(img):
           # Rectangle coordinates
           x = int(center_x - w / 2)
           y = int(center_y - h / 2)
-          
+
           boxes.append([x, y, w, h])
           confidences.append(float(confidence))
           class_ids.append(class_id)
-          
+
     indexes = cv2.dnn.NMSBoxes(boxes, confidences, min_confidence, 0.4)
     font = cv2.FONT_HERSHEY_PLAIN
     for i in range(len(boxes)):
