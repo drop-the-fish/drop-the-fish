@@ -41,12 +41,12 @@ def result_fish():
   return jsonify({final_result: str(prediction)}),200
 
 @app.route('/result/sushi', methods=['POST', 'GET'])
-def result_fish():
+def result_sushi():
   base64Image = request.json
   imageStr = base64.b64decode(base64Image['image'])
   nparr = np.fromstring(imageStr, np.uint8)
   img_np = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-  detectFishModels(img_np)
+  detectSushiModels(img_np)
 
   temp = get_final_result()
   if len(temp) == 0:

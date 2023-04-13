@@ -8,7 +8,7 @@ confidence_list = []
 final_result = []
 
 
-def detectFishModels(img):
+def detectSushiModels(img):
     for k in range(len(model_list)):
         net = cv2.dnn.readNet(model_list[k], "/home/kohjunghoon/mysite/yolov4.cfg")
         classes = class_list[k]
@@ -80,11 +80,11 @@ def clear_confidence_list():
     confidence_list.clear()
 
 
-def get_best_fish():
-    print('현재 어종별 확률 : ', confidence_list)
+def get_best_sushi():
+    print('현재 회별 확률 : ', confidence_list)
     best_confidence = max(confidence_list)
     index = confidence_list.index(best_confidence)
-    print('확률 높은 어종 : ', final_result[index], confidence_list[index])
+    print('확률 높은 회 : ', final_result[index], confidence_list[index])
     return final_result[index], confidence_list[index]
 
 
