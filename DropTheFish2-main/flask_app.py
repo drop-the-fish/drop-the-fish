@@ -28,6 +28,7 @@ def result_fish():
   temp = get_final_result()
   if len(temp) == 0:
       prediction = '어종 인식에 실패했습니다.'
+      final_result = 'NULL'
   else:
     final_result, prediction = get_best_fish()
     prediction_num = int(prediction * 100)
@@ -48,6 +49,7 @@ def result_sushi():
   temp = get_final_Sushiresult()
   if len(temp) == 0:
       prediction = '어종 인식에 실패했습니다.'
+      sushiName = 'NULL'
   else:
     sushiName, prediction = get_best_sushi()
     prediction_num = int(prediction * 100)
