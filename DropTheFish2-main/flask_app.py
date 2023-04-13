@@ -49,13 +49,13 @@ def result_sushi():
   if len(temp) == 0:
       prediction = '어종 인식에 실패했습니다.'
   else:
-    final_result, prediction = get_best_sushi()
+    sushiName, prediction = get_best_sushi()
     prediction_num = int(prediction * 100)
     prediction = prediction_num
 
   clear_final_result()
   clear_confidence_list()
-  return jsonify({final_result: str(prediction)}),200
+  return jsonify({sushiName: str(prediction)}),200
 
 
 

@@ -5,7 +5,7 @@ model_list = ["/home/kohjunghoon/mysite/sushi/salmonsashimi.weights"]
 class_list = [["연어"], ]
 
 confidence_list = []
-final_result = []
+final_sushi_result = []
 
 
 def detectSushiModels(img):
@@ -65,11 +65,11 @@ def detectSushiModels(img):
 
 
 def get_final_Sushiresult():
-    return final_result
+    return final_sushi_result
 
 
 def clear_final_result():
-    final_result.clear()
+    final_sushi_result.clear()
 
 
 def get_confidence_list():
@@ -84,7 +84,7 @@ def get_best_sushi():
     print('현재 회별 확률 : ', confidence_list)
     best_confidence = max(confidence_list)
     index = confidence_list.index(best_confidence)
-    print('확률 높은 회 : ', final_result[index], confidence_list[index])
-    return final_result[index], confidence_list[index]
+    print('확률 높은 회 : ', final_sushi_result[index], confidence_list[index])
+    return final_sushi_result[index], confidence_list[index]
 
 
