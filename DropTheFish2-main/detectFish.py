@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 
-model_list = [ "/home/kohjunghoon/mysite/fish/salmon.weights"]
-class_list = [["연어"],]
+model_list = [ "/home/kohjunghoon/mysite/fish/salmon.weights", "/home/kohjunghoon/mysite/fish/flatfish.weights"]
+class_list = [["연어"],["광어"]]
 
 confidence_list = []
 final_result = []
