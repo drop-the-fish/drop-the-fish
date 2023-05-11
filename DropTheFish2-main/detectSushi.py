@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 
-model_list = ["/home/kohjunghoon/mysite/sushi/salmonsashimi.weights"]
-class_list = [["연어 회"], ]
+model_list = ["/home/kohjunghoon/mysite/sushi/salmonsashimi.weights", "/home/kohjunghoon/mysite/sushi/Troutsashimi.weight"]
+class_list = [["연어 회"], ["송어 회"]]
 
 confidence_list = []
 final_sushi_result = []
