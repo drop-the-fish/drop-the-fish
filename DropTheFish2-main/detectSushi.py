@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 model_list = ["/home/kohjunghoon/mysite/sushi/salmonsashimi.weights"]
-class_list = [["연어"], ]
+class_list = [["연어 회"], ]
 
 confidence_list = []
 final_sushi_result = []
