@@ -40,6 +40,7 @@ def result_fish():
         prediction = prediction_num
     clear_final_result()
     clear_confidence_list()
+    print("초기화 안된 리스트", fish_final_result)
     return jsonify({final_result: str(prediction)}), 200
 
 

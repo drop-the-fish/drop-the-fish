@@ -4,8 +4,8 @@ import numpy as np
 model_list = ["/home/kohjunghoon/mysite/fish/salmon.weights", "/home/kohjunghoon/mysite/fish/flatfish.weights"]
 class_list = [["연어"], ["광어"]]
 
-confidence_list = []
-final_result = []
+fish_confidence_list = []
+fish_final_result = []
 
 
 def detectFishModels(img):
@@ -54,8 +54,8 @@ def detectFishModels(img):
             if i in indexes:
                 x, y, w, h = boxes[i]
                 label = str(classes[class_ids[i]])
-                confidence_list.append(confidences[i])
-                final_result.append(label)
+                fish_confidence_list.append(confidences[i])
+                fish_final_result.append(label)
                 print(label, ':', confidences[i])
 
                 color = colors[0]
@@ -65,26 +65,26 @@ def detectFishModels(img):
 
 
 def get_final_result():
-    return final_result
+    return fish_final_result
 
 
 def clear_final_result():
-    final_result.clear()
+    fish_final_result.clear()
 
 
 def get_confidence_list():
-    return confidence_list
+    return fish_confidence_list
 
 
 def clear_confidence_list():
-    confidence_list.clear()
+    fish_confidence_list.clear()
 
 
 def get_best_fish():
-    print('현재 어종별 확률 : ', confidence_list)
-    print('현재 어종별 모델 : ', final_result)
+    print('현재 어종별 확률 : ', fish_confidence_list)
+    print('현재 어종별 모델 : ', fish_final_result)
     # return confidence_list
-    best_confidence = max(confidence_list)
-    index = confidence_list.index(best_confidence)
-    print('확률 높은 어종 : ', final_result[index], confidence_list[index])
-    return final_result[index], confidence_list[index]
+    best_confidence = max(fish_confidence_list)
+    index = fish_confidence_list.index(best_confidence)
+    print('확률 높은 어종 : ', fish_final_result[index], fish_confidence_list[index])
+    return fish_final_result[index], fish_confidence_list[index]

@@ -4,8 +4,8 @@ import numpy as np
 model_list = ["/home/kohjunghoon/mysite/sushi/salmonsashimi.weights", "/home/kohjunghoon/mysite/sushi/Troutsashimi.weight"]
 class_list = [["연어 회"], ["송어 회"]]
 
-confidence_list = []
-final_sushi_result = []
+sushi_confidence_list = []
+sushi_final_result = []
 
 
 def detectSushiModels(img):
@@ -54,8 +54,8 @@ def detectSushiModels(img):
             if i in indexes:
                 x, y, w, h = boxes[i]
                 label = str(classes[class_ids[i]])
-                confidence_list.append(confidences[i])
-                final_sushi_result.append(label)
+                sushi_confidence_list.append(confidences[i])
+                sushi_final_result.append(label)
                 print(label, ':', confidences[i])
 
                 color = colors[0]
@@ -65,26 +65,26 @@ def detectSushiModels(img):
 
 
 def get_final_Sushiresult():
-    return final_sushi_result
+    return sushi_final_result
 
 
 def clear_final_result():
-    final_sushi_result.clear()
+    sushi_final_result.clear()
 
 
 def get_confidence_list():
-    return confidence_list
+    return sushi_confidence_list
 
 
 def clear_confidence_list():
-    confidence_list.clear()
+    sushi_confidence_list.clear()
 
 
 def get_best_sushi():
-    print('현재 회별 확률 : ', confidence_list)
-    best_confidence = max(confidence_list)
-    index = confidence_list.index(best_confidence)
-    print('확률 높은 회 : ', final_sushi_result[index], confidence_list[index])
-    return final_sushi_result[index], confidence_list[index]
+    print('현재 회별 확률 : ', sushi_confidence_list)
+    best_confidence = max(sushi_confidence_list)
+    index = sushi_confidence_list.index(best_confidence)
+    print('확률 높은 회 : ', sushi_final_result[index], sushi_confidence_list[index])
+    return sushi_final_result[index], sushi_confidence_list[index]
 
 
