@@ -74,6 +74,7 @@ def clear_confidence_list():
   confidence_list.clear()
 def get_best_fish():
   print('현재 어종별 확률 : ',confidence_list)
+  print('현재 어종별 모델 : ',final_result)
   # return confidence_list
   best_confidence = max(confidence_list)
   index = confidence_list.index(best_confidence)
